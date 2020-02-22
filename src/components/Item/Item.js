@@ -37,7 +37,7 @@ const Item = ({ item, activeCard, setActiveCard }) => {
             </tbody>
           </table>
           <Divider />
-          <p>{addressLine1}</p>
+          <p className={style.address1}>{addressLine1}</p>
           <p>{addressLine2}</p>
         </CardContent>
       </CardActionArea>

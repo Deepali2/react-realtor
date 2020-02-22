@@ -46,6 +46,10 @@
   margin-left: 10px;
 }
 
-tr {
-  height: 30px;
+.items tr {
+  height: 25px;
+}
+
+.address1 {
+  margin-top: 5px;
 }
