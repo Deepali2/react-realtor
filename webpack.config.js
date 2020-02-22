@@ -32,7 +32,7 @@ module.exports = {
             options: {
               modules: true,
               importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:basė4",
+              localIdentName: "[name]_[local]_[hash:basė64:5]",
               sourceMap: true,
               // minimize: true
             }
