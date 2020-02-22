@@ -1,12 +1,14 @@
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core';
+import { Card, CardActionArea, CardMedia, CardContent, Divider } from '@material-ui/core';
 import style from './Item.css';
 
 const Item = ({ item, activeCard, setActiveCard }) => {
   const addressLine1 = item.address.address2 ? `${item.address.address1} ${item.address.address2}` : `${item.address.address1}`;
   const addressLine2 = `${item.address.city}, ${item.address.state} ${item.address.zip}`;
   const listPrice = item.financial ? `${item.financial.listPrice}` : null;
-  const yearBuilt = item.physical ? `Built in ${item.physical.yearBuilt}` : null
+  const yearBuilt = item.physical ? `Built in ${item.physical.yearBuilt}` : null;
+  const monthlyRent = item.financial ? `${item.financial.monthlyRent}` : null;
+  const grossyield = item.financial ? `${((monthlyRent * 12 / listPrice) * 100).toFixed(2)}%` : null;
 
   return (
     <Card className={style.card}>
@@ -19,9 +21,14 @@ const Item = ({ item, activeCard, setActiveCard }) => {
         />
         <div className={style.overlay}>
           <p className={style.list_price}>{price(listPrice)}</p>
-          <p className={style.built_in}>{yearBuilt  }</p>
+          <p className={style.built_in}>{yearBuilt}</p>
         </div>
         <CardContent className={style.card_content}>
+          <div className={style.gridItems}>
+            <div>Monthly Rent Gross Yield</div>
+            <div>{price(monthlyRent)} {grossyield}</div>
+          </div>
+          <Divider />
           <p>{addressLine1}</p>
           <p>{addressLine2}</p>
         </CardContent>

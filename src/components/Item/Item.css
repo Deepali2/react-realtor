@@ -13,7 +13,7 @@
 .card .card_content {
    font-family: 'Montserrat';
    color: gray;
-   font-size: 0.8rem;
+   font-size: 1rem;
 }
 
 .card .overlay {
@@ -31,4 +31,8 @@
 
 .built_in {
   font-size: 0.9rem;
+}
+
+.gridItems {
+  display: grid;
 }
