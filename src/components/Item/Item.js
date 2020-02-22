@@ -6,6 +6,7 @@ const Item = ({ item, activeCard, setActiveCard }) => {
   const addressLine1 = item.address.address2 ? `${item.address.address1} ${item.address.address2}` : `${item.address.address1}`;
   const addressLine2 = `${item.address.city}, ${item.address.state} ${item.address.zip}`;
   const listPrice = item.financial ? `${item.financial.listPrice}` : null;
+  const yearBuilt = item.physical ? `Built in ${item.physical.yearBuilt}` : null
 
   return (
     <Card className={style.card}>
@@ -16,7 +17,10 @@ const Item = ({ item, activeCard, setActiveCard }) => {
           title='image'
           src='picture'
         />
-        <div className={style.overlay}>{price(listPrice)}</div>
+        <div className={style.overlay}>
+          <p className={style.list_price}>{price(listPrice)}</p>
+          <p className={style.built_in}>{yearBuilt  }</p>
+        </div>
         <CardContent className={style.card_content}>
           <p>{addressLine1}</p>
           <p>{addressLine2}</p>
