@@ -17,9 +17,9 @@ const App = () => {
   }, []);
 
   return (
-    <div>
+    <div className={style.container}>
       <h1>roofstock</h1>
-      <ul>
+      <ul className={style.items}>
         {data
           ? data.map(item => (
             <Item

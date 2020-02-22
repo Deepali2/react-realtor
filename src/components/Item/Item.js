@@ -1,23 +1,16 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardMedia, CardContent } from '@material-ui/core';
 import style from './Item.css';
 
-const useStyles = makeStyles({
-  media: {
-    height: 140,
-  }
-})
-
 const Item = ({ item, activeCard, setActiveCard }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const addressLine1 = item.address.address2 ? `${item.address.address1} ${item.address.address2}` : `${item.address.address1}`;
   const addressLine2 = `${item.address.city}, ${item.address.state} ${item.address.zip}`;
   return (
-    <Card>
+    <Card className={style.card}>
       <CardActionArea>
         <CardMedia
-          className={classes.media}
+          className={style.card_media}
           image={item.mainImageUrl}
           title='image'
           src='picture'
