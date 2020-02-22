@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent, Divider } from '@material-ui/core';
+import { Card, CardActionArea, CardMedia, CardContent, Divider, Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 import style from './Item.css';
 
 const Item = ({ item, activeCard, setActiveCard }) => {
@@ -24,10 +24,18 @@ const Item = ({ item, activeCard, setActiveCard }) => {
           <p className={style.built_in}>{yearBuilt}</p>
         </div>
         <CardContent className={style.card_content}>
-          <div className={style.gridItems}>
-            <div>Monthly Rent Gross Yield</div>
-            <div>{price(monthlyRent)} {grossyield}</div>
-          </div>
+          <table className={style.items}>
+            <tbody>
+              <tr>
+                <td className={style.monthlyRent}><span>Rent</span></td>
+                <td className={style.grossyield}><span>Gross Yield</span></td>
+              </tr>
+              <tr>
+                <td className={style.monthlyRent}><span>{price(monthlyRent)}</span></td>
+                <td className={style.grossyield}><span>{grossyield}</span></td>
+              </tr>
+            </tbody>
+          </table>
           <Divider />
           <p>{addressLine1}</p>
           <p>{addressLine2}</p>
