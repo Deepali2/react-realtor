@@ -1,5 +1,4 @@
 import React from "react";
-import style from './ImageSlide.css';
 
 const ImageSlide = ({ url }) => {
   console.log(url);

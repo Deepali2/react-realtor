@@ -1,5 +1,5 @@
-.slide_arrow {
-	color:red;
+.slide_arrow.left {
+	color: #fff;
 	font-size: 2rem;
 	position: sticky;
 	top: 50%;
@@ -7,4 +7,9 @@
 
 .slide_arrow.right {  
   float: right;
+  font-size: 2rem;
+	position: sticky;
+  bottom: 45%;
+  right: 25%;
+  color: #fff;
 }
