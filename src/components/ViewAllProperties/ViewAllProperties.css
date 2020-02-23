@@ -3,3 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.slide_toggle {
+  margin: 0  0 10px 10px;
+}
