@@ -7,8 +7,8 @@ const ImageSlide = ({ url }) => {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '70vh',
-    width: '70vw',
-    transition: 'all 0.3s ease-in-out'
+    width: '50vw',
+    // transition: 'all 0.3s ease-in-out'
   };
 
   return (
