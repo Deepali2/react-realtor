@@ -14,8 +14,15 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import Table from '@material-ui/core/Table';
 import TableRow from '@material-ui/core/TableRow';
+import { withStyles } from '@material-ui/core/styles';
 
-const ViewAllProperties = ({ data, setActiveCard }) => {
+const styles = {
+  tableContainer: {
+    fontFamily: 'Montserrat'
+  }
+}
+
+const ViewAllProperties = ({ data, setActiveCard, classes }) => {
   const [listView, setListView] = useState(true);
 
   return (
@@ -40,7 +47,7 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
       )}
 
       {listView && (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className={classes.tableContainer}>
           <Table>
             <TableHead>
               <TableRow>
@@ -50,7 +57,7 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
                 <TableCell>Rent</TableCell>
                 <TableCell>Gross Yield</TableCell>
                 <TableCell>Year Built</TableCell>
-                <TableCell>See Details</TableCell>
+                <TableCell></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -63,7 +70,11 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
                     listView={listView}
                   />
                 ))
-                : <CircularProgress />
+                : (<>
+                  <TableRow>
+                    <TableCell><CircularProgress /></TableCell>
+                  </TableRow>
+                </>)
               }
             </TableBody>
           </Table>
@@ -76,7 +87,8 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
 
 ViewAllProperties.propTypes = {
   data: PropTypes.array,
-  setActiveCard: PropTypes.func
+  setActiveCard: PropTypes.func,
+  classes: PropTypes.object.isRequired,
 }
 
-export default ViewAllProperties;
+export default withStyles(styles)(ViewAllProperties);

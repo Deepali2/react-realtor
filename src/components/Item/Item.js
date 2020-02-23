@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import Avatar from '@material-ui/core/Avatar';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
+import { withStyles } from '@material-ui/core/styles';
 
 import style from './Item.css';
 
@@ -33,7 +34,30 @@ const price = num => {
   return number;
 }
 
-const Item = ({ item, setActiveCard, listView }) => {
+const styles = {
+  seeDetails: {
+    background: '#5c2be2',
+    borderRadius: 3,
+    border: 0,
+    color: 'white',
+    height: 48,
+    padding: '0 30px',
+    textDecoration: 'none',
+    textTransform: 'none'
+  },
+  address1: {
+    color: '#5c2be2',
+    fontSize: '1.1rem',
+    fontWeight: '300'
+  },
+  address2: {
+    color: 'gray',
+    fontSize: '0.8rem',
+    fontWeight: '300'
+  }
+};
+
+const Item = ({ item, setActiveCard, listView, classes }) => {
   const addressLine1 = item.address.address2 ? `${item.address.address1} ${item.address.address2}` : `${item.address.address1}`;
   const addressLine2 = `${item.address.city}, ${item.address.state} ${item.address.zip}`;
   const listPrice = item.financial ? `${item.financial.listPrice}` : null;
@@ -90,9 +114,9 @@ const Item = ({ item, setActiveCard, listView }) => {
             </Link>
           </TableCell>
           <TableCell>
-            <Link to='/property-details' onClick={() => setActiveCard(item)}>
-              <p className={style.address1}>{addressLine1}</p>
-              <p>{addressLine2}</p>
+            <Link to='/property-details' onClick={() => setActiveCard(item)} style={{ textDecoration: 'none' }}>
+              <p className={classes.address1}>{addressLine1}</p>
+              <p className={classes.address2}>{addressLine2}</p>
             </Link>
           </TableCell>
           <TableCell>{price(listPrice)}</TableCell>
@@ -100,8 +124,8 @@ const Item = ({ item, setActiveCard, listView }) => {
           <TableCell>{grossyield}</TableCell>
           <TableCell>{listYearBuilt}</TableCell>
           <TableCell>
-            <Link to='/property-details' onClick={() => setActiveCard(item)}>
-              <Button variant="contained" color="primary">See Details</Button>
+            <Link to='/property-details' onClick={() => setActiveCard(item)} style={{ textDecoration: 'none' }}>
+              <Button variant="contained" className={classes.seeDetails}>See Details</Button>
             </Link>
           </TableCell>
         </TableRow>
@@ -113,7 +137,9 @@ const Item = ({ item, setActiveCard, listView }) => {
 Item.propTypes = {
   item: PropTypes.object,
   setActiveCard: PropTypes.func,
-  listView: PropTypes.bool
+  listView: PropTypes.bool,
+  classes: PropTypes.object.isRequired,
 }
 
-export default Item;
+export default withStyles(styles)(Item);
+// export default Item;
