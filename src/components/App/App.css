@@ -8,12 +8,6 @@
   margin: auto;
 }
 
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
 .container h1 {
   margin: 10px 0 10px 10px;
   color: 	#C8C8C8;

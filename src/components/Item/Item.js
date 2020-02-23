@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { Card, CardActionArea, CardMedia, CardContent, Divider, Table, TableBody, TableCell, TableRow } from '@material-ui/core';
 import style from './Item.css';
 
-const Item = ({ item, activeCard, setActiveCard }) => {
+const Item = ({ item, setActiveCard }) => {
   const addressLine1 = item.address.address2 ? `${item.address.address1} ${item.address.address2}` : `${item.address.address1}`;
   const addressLine2 = `${item.address.city}, ${item.address.state} ${item.address.zip}`;
   const listPrice = item.financial ? `${item.financial.listPrice}` : null;
@@ -11,7 +12,7 @@ const Item = ({ item, activeCard, setActiveCard }) => {
   const grossyield = item.financial ? `${((monthlyRent * 12 / listPrice) * 100).toFixed(2)}%` : null;
 
   return (
-    <Card className={style.card}>
+    <Card className={style.card} onClick={() => setActiveCard(item)}>
       <CardActionArea>
         <CardMedia
           className={style.card_media}
@@ -61,6 +62,11 @@ function price(num) {
   }
   const number = `$${array.join('')}.${decimal2Places}`;
   return number;
+}
+
+Item.propTypes = {
+  item: PropTypes.object,
+  setActiveCard: PropTypes.func
 }
 
 export default Item;
