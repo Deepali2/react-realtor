@@ -9,16 +9,15 @@ const PropertyDetails = ({ activeCard }) => {
   console.log(activeCard);
   const addressLine1 = activeCard.address.address2 ? `${activeCard.address.address1} ${activeCard.address.address2}` : `${activeCard.address.address1}`;
   const addressLine2 = `${activeCard.address.city}, ${activeCard.address.state} ${activeCard.address.zip}`;
-  const imgUrls = activeCard.resources.photos.map(photo => photo.url)
+  const imgUrls = activeCard.resources ? activeCard.resources.photos.map(photo => photo.url) : null;
 
   return (
     <div>
-
       <div>
         <p className={style.address1}>{addressLine1}</p>
         <p className={style.address2}>{addressLine2}</p>
       </div>
-      <Carousel imgUrls={imgUrls} />
+      {imgUrls && <Carousel imgUrls={imgUrls} />}
     </div>
   )
 }
