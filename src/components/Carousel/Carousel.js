@@ -15,12 +15,11 @@ const Carousel = props => {
   };
 
   const { imgUrls } = props;
-
   return (
     <div className={style.carousel}>
       <Arrow direction="left" clickFunction={() => moveSlide(currentImageIndex - 1)} glyph="&#9664;" />
-      <Arrow direction="right" clickFunction={() => moveSlide(currentImageIndex + 1)} glyph="&#9654;" />
       <ImageSlide url={imgUrls[currentImageIndex]} />
+      <Arrow direction="right" clickFunction={() => moveSlide(currentImageIndex + 1)} glyph="&#9654;" />
     </div>
   );
 }

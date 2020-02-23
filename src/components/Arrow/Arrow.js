@@ -4,7 +4,7 @@ import style from './Arrow.css';
 
 const Arrow = ({ direction, clickFunction, glyph }) => (
   <div
-    className={`${style.slide_arrow} ${direction}`}
+    className={`${style.slide_arrow} ${style[direction]}`}
     onClick={clickFunction}>
     {glyph}
   </div>
