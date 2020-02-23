@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import style from './ViewAllProperties.css';
 
 import Item from '../Item/Item';
-import SlideToggle from '../SlideToggle/SlideToggle'
+import SwitchToggle from '../SwitchToggle/SwitchToggle'
 
 //Material UI imports
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -23,12 +23,12 @@ const styles = {
 }
 
 const ViewAllProperties = ({ data, setActiveCard, classes }) => {
-  const [listView, setListView] = useState(true);
+  const [listView, setListView] = useState(false);
 
   return (
     <>
       <div className={style.slide_toggle}>
-        <SlideToggle />
+        <SwitchToggle listView={listView} setListView={setListView}/>
       </div>
       {!listView && (
         <ul className={style.items}>
