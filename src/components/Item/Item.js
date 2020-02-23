@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom';
 import { Card, CardActionArea, CardMedia, CardContent, Divider, Table, TableBody, TableCell, TableRow } from '@material-ui/core';
+
 import style from './Item.css';
+
+
 
 const Item = ({ item, setActiveCard }) => {
   const addressLine1 = item.address.address2 ? `${item.address.address1} ${item.address.address2}` : `${item.address.address1}`;
@@ -14,12 +18,15 @@ const Item = ({ item, setActiveCard }) => {
   return (
     <Card className={style.card} onClick={() => setActiveCard(item)}>
       <CardActionArea>
-        <CardMedia
-          className={style.card_media}
-          image={item.mainImageUrl}
-          title='image'
-          src='picture'
-        />
+        <Link to='/property-details'>
+          <CardMedia
+            className={style.card_media}
+            image={item.mainImageUrl}
+            title='image'
+            path='/property-details'
+            src='picture'
+          />
+        </Link>
         <div className={style.overlay}>
           <p className={style.list_price}>{price(listPrice)}</p>
           <p className={style.built_in}>{yearBuilt}</p>

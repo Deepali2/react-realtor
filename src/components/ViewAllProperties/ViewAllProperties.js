@@ -12,7 +12,6 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
           <Item
             item={item}
             key={item.id}
-            // activeCard={activeCard === item.id}
             setActiveCard={setActiveCard}
           />
         ))
