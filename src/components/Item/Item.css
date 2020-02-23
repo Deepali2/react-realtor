@@ -53,3 +53,28 @@
 .address1 {
   margin-top: 5px;
 }
+
+@media screen and (max-width: 1439px) {
+  .card {
+    width: 24%;
+  }
+}
+
+@media screen and (max-width: 1119px) {
+  .card {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .card {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 70%;
+    margin-left: 10%;
+  }
+}

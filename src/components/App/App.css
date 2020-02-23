@@ -12,3 +12,10 @@
   margin: 10px 0 10px 10px;
   color: 	#C8C8C8;
 }
+
+@media screen and (max-width: 767px) {
+  .container h1 {
+    width: 70%;
+    margin-left: 10%;
+  }
+}
