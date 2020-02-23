@@ -1,0 +1,13 @@
+.address1 {
+  margin: 10px 0 5px 0;
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
+
+.address2 {
+  font-weight: 300;
+  color: gray;
+  font-family: 'Montserrat';
+  margin-bottom: 10px;
+
+}

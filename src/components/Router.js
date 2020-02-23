@@ -21,7 +21,14 @@ const Router = () => {
     <div>
       <main>
         <Switch>
-          <Route path='/property-details' component={PropertyDetails} />
+          <Route path='/property-details'
+            render={props => (
+              <PropertyDetails
+                {...props}
+                activeCard={activeCard}
+              />
+            )}
+          />
           <Route path='/'
             render={props => (
               <ViewAllProperties

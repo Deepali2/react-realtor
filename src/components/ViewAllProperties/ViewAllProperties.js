@@ -4,6 +4,8 @@ import style from './ViewAllProperties.css';
 
 import Item from '../Item/Item';
 
+import { CircularProgress } from '@material-ui/core';
+
 const ViewAllProperties = ({ data, setActiveCard }) => {
   return (
     <ul className={style.items}>
@@ -15,7 +17,7 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
             setActiveCard={setActiveCard}
           />
         ))
-        : `loading data`
+        : <CircularProgress />
       }
     </ul>
   )

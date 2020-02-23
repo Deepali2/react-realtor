@@ -1,0 +1,10 @@
+.slide_arrow {
+	color: #808080;
+	font-size: 2rem;
+	position: sticky;
+	top: 50%;
+}
+
+.slide_arrow.right {  
+  float: right;
+}
