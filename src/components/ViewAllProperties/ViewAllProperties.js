@@ -25,11 +25,7 @@ const styles = {
 }
 
 const ViewAllProperties = ({ data, setActiveCard, classes }) => {
-  const [listView, setListView] = useState();
-
-  useEffect(() => {
-    if (listView === undefined) setListView(false);
-  });
+  const [listView, setListView] = useState(false);
 
   return (
     <>
