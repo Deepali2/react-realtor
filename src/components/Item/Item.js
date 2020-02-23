@@ -54,7 +54,12 @@ const styles = {
     color: 'gray',
     fontSize: '0.8rem',
     fontWeight: '300'
-  }
+  },
+  tableCell: {
+    fontFamily: 'Montserrat',
+    fontSize: '1.1rem',
+    color: 'gray',
+  },
 };
 
 const Item = ({ item, setActiveCard, listView, classes }) => {
@@ -119,10 +124,10 @@ const Item = ({ item, setActiveCard, listView, classes }) => {
               <p className={classes.address2}>{addressLine2}</p>
             </Link>
           </TableCell>
-          <TableCell>{price(listPrice)}</TableCell>
-          <TableCell>{price(monthlyRent)}</TableCell>
-          <TableCell>{grossyield}</TableCell>
-          <TableCell>{listYearBuilt}</TableCell>
+          <TableCell className={classes.tableCell}>{price(listPrice)}</TableCell>
+          <TableCell className={classes.tableCell}>{price(monthlyRent)}</TableCell>
+          <TableCell className={classes.tableCell}>{grossyield}</TableCell>
+          <TableCell className={classes.tableCell}>{listYearBuilt}</TableCell>
           <TableCell>
             <Link to='/property-details' onClick={() => setActiveCard(item)} style={{ textDecoration: 'none' }}>
               <Button variant="contained" className={classes.seeDetails}>See Details</Button>

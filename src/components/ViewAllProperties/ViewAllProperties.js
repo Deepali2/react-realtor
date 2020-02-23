@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
 import style from './ViewAllProperties.css';
 
@@ -17,18 +17,24 @@ import TableRow from '@material-ui/core/TableRow';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
-  tableContainer: {
-    fontFamily: 'Montserrat'
-  }
+  tableCell: {
+    fontFamily: 'Montserrat',
+    fontSize: '1.1rem',
+    color: 'gray',
+  },
 }
 
 const ViewAllProperties = ({ data, setActiveCard, classes }) => {
-  const [listView, setListView] = useState(false);
+  const [listView, setListView] = useState();
+
+  useEffect(() => {
+    if (listView === undefined) setListView(false);
+  });
 
   return (
     <>
       <div className={style.slide_toggle}>
-        <SwitchToggle listView={listView} setListView={setListView}/>
+        <SwitchToggle listView={listView} setListView={setListView} />
       </div>
       {!listView && (
         <ul className={style.items}>
@@ -47,17 +53,17 @@ const ViewAllProperties = ({ data, setActiveCard, classes }) => {
       )}
 
       {listView && (
-        <TableContainer component={Paper} className={classes.tableContainer}>
+        <TableContainer component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell></TableCell>
-                <TableCell>Address</TableCell>
-                <TableCell>Price</TableCell>
-                <TableCell>Rent</TableCell>
-                <TableCell>Gross Yield</TableCell>
-                <TableCell>Year Built</TableCell>
-                <TableCell></TableCell>
+                <TableCell className={classes.tableCell}></TableCell>
+                <TableCell className={classes.tableCell}>Address</TableCell>
+                <TableCell className={classes.tableCell}>Price</TableCell>
+                <TableCell className={classes.tableCell}>Rent</TableCell>
+                <TableCell className={classes.tableCell}>Gross Yield</TableCell>
+                <TableCell className={classes.tableCell}>Year Built</TableCell>
+                <TableCell className={classes.tableCell}></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
