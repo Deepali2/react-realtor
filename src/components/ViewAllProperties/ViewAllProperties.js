@@ -5,7 +5,15 @@ import style from './ViewAllProperties.css';
 import Item from '../Item/Item';
 import SlideToggle from '../SlideToggle/SlideToggle'
 
-import { CircularProgress, Paper, TableContainer, Table, TableBody, TableCell, TableRow, TableHead } from '@material-ui/core';
+//Material UI imports
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Paper from '@material-ui/core/Paper';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import Table from '@material-ui/core/Table';
+import TableRow from '@material-ui/core/TableRow';
 
 const ViewAllProperties = ({ data, setActiveCard }) => {
   const [listView, setListView] = useState(true);
@@ -36,12 +44,13 @@ const ViewAllProperties = ({ data, setActiveCard }) => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Image</TableCell>
+                <TableCell></TableCell>
                 <TableCell>Address</TableCell>
                 <TableCell>Price</TableCell>
                 <TableCell>Rent</TableCell>
                 <TableCell>Gross Yield</TableCell>
                 <TableCell>Year Built</TableCell>
+                <TableCell>See Details</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

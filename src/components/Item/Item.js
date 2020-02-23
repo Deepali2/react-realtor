@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
-import { Card, CardActionArea, CardMedia, CardContent, Divider, Paper, TableContainer, Table, TableBody, TableCell, TableRow, TableHead } from '@material-ui/core';
+
+//Material UI imports
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import Divider from '@material-ui/core/Divider';
+import Avatar from '@material-ui/core/Avatar';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import Button from '@material-ui/core/Button';
 
 import style from './Item.css';
 
@@ -28,6 +38,7 @@ const Item = ({ item, setActiveCard, listView }) => {
   const addressLine2 = `${item.address.city}, ${item.address.state} ${item.address.zip}`;
   const listPrice = item.financial ? `${item.financial.listPrice}` : null;
   const yearBuilt = item.physical ? `Built in ${item.physical.yearBuilt}` : null;
+  const listYearBuilt = item.physical ? `${item.physical.yearBuilt}` : null;
   const monthlyRent = item.financial ? `${item.financial.monthlyRent}` : null;
   const grossyield = item.financial ? `${((monthlyRent * 12 / listPrice) * 100).toFixed(2)}%` : null;
 
@@ -44,40 +55,55 @@ const Item = ({ item, setActiveCard, listView }) => {
                 path='/property-details'
                 src='picture'
               />
+              <div className={style.overlay}>
+                <p className={style.list_price}>{price(listPrice)}</p>
+                <p className={style.built_in}>{yearBuilt}</p>
+              </div>
+              <CardContent className={style.card_content}>
+                <table className={style.items}>
+                  <tbody>
+                    <tr>
+                      <td className={style.monthlyRent}><span>Rent</span></td>
+                      <td className={style.grossyield}><span>Gross Yield</span></td>
+                    </tr>
+                    <tr>
+                      <td className={style.monthlyRent}><span>{price(monthlyRent)}</span></td>
+                      <td className={style.grossyield}><span>{grossyield}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <Divider />
+                <p className={style.address1}>{addressLine1}</p>
+                <p>{addressLine2}</p>
+              </CardContent>
             </Link>
-            <div className={style.overlay}>
-              <p className={style.list_price}>{price(listPrice)}</p>
-              <p className={style.built_in}>{yearBuilt}</p>
-            </div>
-            <CardContent className={style.card_content}>
-              <table className={style.items}>
-                <tbody>
-                  <tr>
-                    <td className={style.monthlyRent}><span>Rent</span></td>
-                    <td className={style.grossyield}><span>Gross Yield</span></td>
-                  </tr>
-                  <tr>
-                    <td className={style.monthlyRent}><span>{price(monthlyRent)}</span></td>
-                    <td className={style.grossyield}><span>{grossyield}</span></td>
-                  </tr>
-                </tbody>
-              </table>
-              <Divider />
-              <p className={style.address1}>{addressLine1}</p>
-              <p>{addressLine2}</p>
-            </CardContent>
+
           </CardActionArea>
         </Card>
       )}
 
       {listView && (
         <TableRow>
-          <TableCell>I am a row</TableCell>
-          <TableCell>I am a row</TableCell>
-          <TableCell>I am a row</TableCell>
-          <TableCell>I am a row</TableCell>
-          <TableCell>I am a row</TableCell>
-          <TableCell>I am a row</TableCell>
+          <TableCell>
+            <Link to='/property-details' onClick={() => setActiveCard(item)}>
+              <Avatar alt="avatar" src={item.mainImageUrl} />
+            </Link>
+          </TableCell>
+          <TableCell>
+            <Link to='/property-details' onClick={() => setActiveCard(item)}>
+              <p className={style.address1}>{addressLine1}</p>
+              <p>{addressLine2}</p>
+            </Link>
+          </TableCell>
+          <TableCell>{price(listPrice)}</TableCell>
+          <TableCell>{price(monthlyRent)}</TableCell>
+          <TableCell>{grossyield}</TableCell>
+          <TableCell>{listYearBuilt}</TableCell>
+          <TableCell>
+            <Link to='/property-details' onClick={() => setActiveCard(item)}>
+              <Button variant="contained" color="primary">See Details</Button>
+            </Link>
+          </TableCell>
         </TableRow>
       )}
     </>
