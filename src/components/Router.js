@@ -13,7 +13,6 @@ const Router = () => {
   useEffect(() => {
     axios.get('http://dev1-sample.azurewebsites.net/properties.json')
       .then(response => {
-        console.log(response.data.properties);
         setData(response.data.properties)
       })
   }, []);

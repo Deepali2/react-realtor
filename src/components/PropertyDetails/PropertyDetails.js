@@ -6,7 +6,6 @@ import Carousel from '../Carousel/Carousel';
 import style from './PropertyDetails.css';
 
 const PropertyDetails = ({ activeCard }) => {
-  console.log(activeCard);
   const addressLine1 = activeCard.address.address2 ? `${activeCard.address.address1} ${activeCard.address.address2}` : `${activeCard.address.address1}`;
   const addressLine2 = `${activeCard.address.city}, ${activeCard.address.state} ${activeCard.address.zip}`;
   const imgUrls = activeCard.resources ? activeCard.resources.photos.map(photo => photo.url) : null;

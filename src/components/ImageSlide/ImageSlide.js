@@ -1,7 +1,6 @@
 import React from "react";
 
 const ImageSlide = ({ url }) => {
-  console.log(url);
   const styles = {
     backgroundImage: `url(${url})`,
     backgroundSize: 'cover',
