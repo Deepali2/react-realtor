@@ -3,8 +3,9 @@
 ## Getting Started:
 1. double click the file to unzip it
 2. Open up the terminal and cd into the unzipped repository
-3. Run the command `npm run start`
-4. RoofStock Challenge will open up in your browser at `http://localhost:8080/`
+3. Run the command `npm install`
+4. Now run the command `npm run start`
+5. RoofStock Challenge will open up in your browser at `http://localhost:8080/`
 
 ## Info about project:
 * This project uses React, React Hooks, Node, Material UI, Javascript, HTML, CSS, Axios, Cypress
