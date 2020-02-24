@@ -84,28 +84,29 @@ const Item = ({ item, setActiveCard, listView, classes }) => {
                 path='/property-details'
                 src='picture'
               />
-              <div className={style.overlay}>
-                <p className={style.list_price}>{price(listPrice)}</p>
-                <p className={style.built_in}>{yearBuilt}</p>
-              </div>
-              <CardContent className={style.card_content}>
-                <table className={style.items}>
-                  <tbody>
-                    <tr>
-                      <td className={style.monthlyRent}><span>Rent</span></td>
-                      <td className={style.grossyield}><span>Gross Yield</span></td>
-                    </tr>
-                    <tr>
-                      <td className={style.monthlyRent}><span>{price(monthlyRent)}</span></td>
-                      <td className={style.grossyield}><span>{grossyield}</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <Divider />
-                <p className={style.address1}>{addressLine1}</p>
-                <p>{addressLine2}</p>
-              </CardContent>
             </Link>
+
+            <div className={style.overlay}>
+              <p className={style.list_price}>{price(listPrice)}</p>
+              <p className={style.built_in}>{yearBuilt}</p>
+            </div>
+            <CardContent className={style.card_content}>
+              <table className={style.items}>
+                <tbody>
+                  <tr>
+                    <td className={style.monthlyRent}><span>Rent</span></td>
+                    <td className={style.grossyield}><span>Gross Yield</span></td>
+                  </tr>
+                  <tr>
+                    <td className={style.monthlyRent}><span>{price(monthlyRent)}</span></td>
+                    <td className={style.grossyield}><span>{grossyield}</span></td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider />
+              <p className={style.address1}>{addressLine1}</p>
+              <p>{addressLine2}</p>
+            </CardContent>
 
           </CardActionArea>
         </Card>
