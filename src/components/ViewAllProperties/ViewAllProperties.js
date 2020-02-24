@@ -24,8 +24,7 @@ const styles = {
   },
 }
 
-const ViewAllProperties = ({ data, setActiveCard, classes }) => {
-  const [listView, setListView] = useState(false);
+const ViewAllProperties = ({ data, setActiveCard, classes,  listView, setListView }) => {
 
   return (
     <>
@@ -91,6 +90,8 @@ ViewAllProperties.propTypes = {
   data: PropTypes.array,
   setActiveCard: PropTypes.func,
   classes: PropTypes.object.isRequired,
+  listView: PropTypes.bool,
+  setListView: PropTypes.func
 }
 
 export default withStyles(styles)(ViewAllProperties);

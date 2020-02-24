@@ -8,6 +8,7 @@ import ViewAllProperties from './ViewAllProperties/ViewAllProperties';
 const Router = () => {
   const [activeCard, setActiveCard] = useState(null);
   const [data, setData] = useState(null);
+  const [listView, setListView] = useState(false);
 
   useEffect(() => {
     axios.get('http://dev1-sample.azurewebsites.net/properties.json')
@@ -35,6 +36,8 @@ const Router = () => {
                 {...props}
                 data={data}
                 setActiveCard={setActiveCard}
+                listView={listView}
+                setListView={setListView}
               />
             )}
           />
