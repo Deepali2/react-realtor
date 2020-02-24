@@ -83,8 +83,7 @@ const Item = ({ item, setActiveCard, listView, classes }) => {
                 title='image'
                 path='/property-details'
                 src='picture'
-              />
-            </Link>
+              />            
 
             <div className={style.overlay}>
               <p className={style.list_price}>{price(listPrice)}</p>
@@ -107,7 +106,7 @@ const Item = ({ item, setActiveCard, listView, classes }) => {
               <p className={style.address1}>{addressLine1}</p>
               <p>{addressLine2}</p>
             </CardContent>
-
+            </Link>
           </CardActionArea>
         </Card>
       )}
